@@ -1,0 +1,8 @@
+(for extracting the embeddings from face)
+python embeddings_extraction.py --dataset data\ --embeddings output/embeddings.pickle --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7
+
+(for training the SVM model)
+python train.py --embeddings output/embeddings.pickle --recognizer output/recognizer.pickle --labelencoder output/le.pickle
+
+(for recognizing from video)
+python identification.py --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --labelencoder output/le.pickle

@@ -1,33 +1,43 @@
-# Face-Recognition-and-Identification
+# SMART SURVEILLANCE SYSTEM USING FACIAL RECOGNITION SYSTEM (PROJECT IDEATION)
 
-An ongoing project on Face Recognition and Identification, and a part of the academic minor project of 6th semester.
+## Introduction
 
-## Steps to run and test the model:
+Security surveillance has always been a prime necessity, especially in criminal prone zones. However, the recent changing trend in the surveillance system has proved that a security camera with the added advantage of recognizing the person on the frame is more preferable to the traditional security cameras. These make the process of tracking culprits easier for the authorities. Therefore through this project we have come up with a surveillance software powered by deep learning which uses the combination of a per-trained Neural Network Model and Support Vector Classifier to detect the face of the person in frame and classify them according to the face data currently stored in the system. 
 
-**Step 1:** Download and install the libraries using the command:
-                pip install -r requirements.txt
+## Structure
 
-**Step 2:** In the 'data' folder, create one folder for each person's face that you are going to identify.
-        eg. data
-              |-Person1
-                |-00001.jpg
-                |-00002.jpg
-                |-00003.jpg
-                |-00004.jpg
-              |-Person2
-                |-00001.jpg
-                |-00002.jpg
-                |-00003.jpg
-                |-00004.jpg
-                
-**Steps 3:** Download the following files and folders from the given link and put it up in your directory. 
-        https://drive.google.com/open?id=1hh4aAYVB3vYSCt91dB43j4XvgoSylJTi
-        
-**Step 4:** Run the first command for extracting embeddings from the image data: 
-                python embeddings_extraction.py --dataset data\ --embeddings output/embeddings.pickle --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7
+In this project we are combining two algorithms to detect and classify faces for digital detection. A FaceNet neural network model and a Support Vector Classifier.
 
-**Step 5:** Run the second command to train the model: 
-                python train.py --embeddings output/embeddings.pickle --recognizer output/recognizer.pickle --labelencoder output/le.pickle
+Our dataset is a combination of images, divided into classes (folders). Each class contains 20 images and each class represents a person.
 
-**Step 6:** Run the third command to run the webcam application: 
-                python identification.py --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --labelencoder output/le.pickle
+The FaceNet model consist of two major components. Detector and Embedder.
+    • The detector takes the weights included with the FaceNet model which helps in localizing faces in an image.
+    • The embedder works as a feature extraction tool. It extracts the embedding weights from the pre-trained model and uses those weights in extracting features from our own face database.
+
+Once the feature extraction and detection are done, we use the extracted features from the image data to train our Support Vector Classifier (SVC). We use a linear kernel for the same. The trained weights are then stored in the form of pickle files.
+
+After the SVC is trained, we move on to using those pickle files for the main detection and identification of the person in frame. Here we make use of openCV and using the weights, we carry out the proper detection along with the probability of occurrence.
+
+## Flow Chart
+
+![Dataflow Diagram](https://github.com/borneelphukan/Face-Recognition-and-Identification/blob/borneelphukan-patch-1/data%20flow%20diagram.jpeg)
+
+## Tools Used
+
+   1. **OpenCV** – We are using OpenCV for the purpose of detecting the face objects through the webcam of our device.
+   2. **Scikit-learn** – We are using a Support Vector Classifier from the SVM class in scikit-learn library in order to classify the different faces embedding that we have extracted from our face database and identify the different people on frame.
+   3. **Pytorch** – In order to calculate the 128d embeddings from the face dataset and extract those embeddings, we need to make use of the pre-trained FaceNet neural network. This FaceNet needs Pytorch framework to function and therefore make the embedder responsive.
+   4. **Caffe** – We use a pre-trained detector that is stored as a caffe model which is used to detect the area on the screen where the face is located. The detector is a part of the pre-trained FaceNet Neural Network.
+
+## Functional Requirements
+
+   1. Download the Face Detector Caffe Model from here: https://drive.google.com/open?id=1hh4aAYVB3vYSCt91dB43j4XvgoSylJTi
+   2. Run the embeddings_extraction.py using the command **python embeddings_extraction.py --dataset data\ --embeddings output/embeddings.pickle --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7**
+   3. Run the train.py using the command **python train.py --embeddings output/embeddings.pickle --recognizer output/recognizer.pickle --labelencoder output/le.pickle**
+   4. Run the identification.py using the command **python identification.py --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --labelencoder output/le.pickle**
+    
+## Other Details
+
+ **Language Written In:** Python 3.6
+ 
+ **Environment (IDE):** Anaconda IDE (Jupyter Notebook/Spyder), PyCharm CE, VSCode

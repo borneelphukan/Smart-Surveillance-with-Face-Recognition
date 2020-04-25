@@ -11,7 +11,9 @@ In this project we are combining two algorithms to detect and classify faces for
 Our dataset is a combination of images, divided into classes (folders). Each class contains 20 images and each class represents a person.
 
 The FaceNet model consist of two major components. Detector and Embedder.
+
     • The detector takes the weights included with the FaceNet model which helps in localizing faces in an image.
+    
     • The embedder works as a feature extraction tool. It extracts the embedding weights from the pre-trained model and uses those weights in extracting features from our own face database.
 
 Once the feature extraction and detection are done, we use the extracted features from the image data to train our Support Vector Classifier (SVC). We use a linear kernel for the same. The trained weights are then stored in the form of pickle files.

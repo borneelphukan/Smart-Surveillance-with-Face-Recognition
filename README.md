@@ -20,6 +20,7 @@ After the SVC is trained, we move on to using those pickle files for the main de
 
 ## Flow Chart
 
+![Dataflow Diagram](url)
 
 ## Tools Used
 

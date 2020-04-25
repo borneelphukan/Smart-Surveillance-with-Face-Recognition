@@ -24,10 +24,10 @@ After the SVC is trained, we move on to using those pickle files for the main de
 
 ## Tools Used
 
-    1. **OpenCV** – We are using OpenCV for the purpose of detecting the face objects through the webcam of our device.
-    2. **Scikit-learn** – We are using a Support Vector Classifier from the SVM class in scikit-learn library in order to classify the different faces embedding that we have extracted from our face database and identify the different people on frame.
-    3. **Pytorch** – In order to calculate the 128d embeddings from the face dataset and extract those embeddings, we need to make use of the pre-trained FaceNet neural network. This FaceNet needs Pytorch framework to function and therefore make the embedder responsive.
-    4. **Caffe** – We use a pre-trained detector that is stored as a caffe model which is used to detect the area on the screen where the face is located. The detector is a part of the pre-trained FaceNet Neural Network.
+   1. **OpenCV** – We are using OpenCV for the purpose of detecting the face objects through the webcam of our device.
+   2. **Scikit-learn** – We are using a Support Vector Classifier from the SVM class in scikit-learn library in order to classify the different faces embedding that we have extracted from our face database and identify the different people on frame.
+   3. **Pytorch** – In order to calculate the 128d embeddings from the face dataset and extract those embeddings, we need to make use of the pre-trained FaceNet neural network. This FaceNet needs Pytorch framework to function and therefore make the embedder responsive.
+   4. **Caffe** – We use a pre-trained detector that is stored as a caffe model which is used to detect the area on the screen where the face is located. The detector is a part of the pre-trained FaceNet Neural Network.
 
 ## Other Details
 

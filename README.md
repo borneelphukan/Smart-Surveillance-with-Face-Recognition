@@ -32,4 +32,5 @@ After the SVC is trained, we move on to using those pickle files for the main de
 ## Other Details
 
  **Language Written In:** Python 3.6
+ 
  **Environment (IDE):** Anaconda IDE (Jupyter Notebook/Spyder), PyCharm CE, VSCode

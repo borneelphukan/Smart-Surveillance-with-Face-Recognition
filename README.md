@@ -20,7 +20,7 @@ After the SVC is trained, we move on to using those pickle files for the main de
 
 ## Flow Chart
 
-![Dataflow Diagram](url)
+![Dataflow Diagram](https://github.com/borneelphukan/Face-Recognition-and-Identification/blob/borneelphukan-patch-1/data%20flow%20diagram.jpeg)
 
 ## Tools Used
 

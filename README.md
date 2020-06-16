@@ -1,8 +1,22 @@
 # SMART SURVEILLANCE SYSTEM USING FACIAL RECOGNITION SYSTEM (PROJECT IDEATION)
 
-## Introduction
+## Abstract
 
-Security surveillance has always been a prime necessity, especially in criminal prone zones. However, the recent changing trend in the surveillance system has proved that a security camera with the added advantage of recognizing the person on the frame is more preferable to the traditional security cameras. These make the process of tracking culprits easier for the authorities. Therefore through this project we have come up with a surveillance software powered by deep learning which uses the combination of a per-trained Neural Network Model and Support Vector Classifier to detect the face of the person in frame and classify them according to the face data currently stored in the system. 
+Surveillance System has always been around us and with the increase in global crime
+rate and unlawful activities, it has become very mandatory that these surveillance
+systems be fitted with some technology that has the capability to detect and identify
+the person commiting the activity. Although multiple detection system has been
+developed using basic software engineering methodologies, the model proposed here
+makes a Deep Learning approach to the problem and makes use of OpenFace Neural
+Network Architecture for the purpose of detecting, identifying and tracking the
+person on frame.
+Through this project, we would like to present a comprehensive study of all the
+researches done on OpenFace Neural Network, compare it with other face
+recognition system and provide a structured explanation of the implementation of
+OpenFace neural network in creating a smart surveillance system.
+
+**Keywords**: FaceNet, OpenFace, LFW Dataset, SVM Classifier, Embeddings
+Extraction, Triplet Loss
 
 ## Structure
 
@@ -20,16 +34,9 @@ Once the feature extraction and detection are done, we use the extracted feature
 
 After the SVC is trained, we move on to using those pickle files for the main detection and identification of the person in frame. Here we make use of openCV and using the weights, we carry out the proper detection along with the probability of occurrence.
 
-## Flow Chart
+## System Design
 
-![Dataflow Diagram](https://github.com/borneelphukan/Face-Recognition-and-Identification/blob/borneelphukan-patch-1/data%20flow%20diagram.jpeg)
-
-## Tools Used
-
-   1. **OpenCV** – We are using OpenCV for the purpose of detecting the face objects through the webcam of our device.
-   2. **Scikit-learn** – We are using a Support Vector Classifier from the SVM class in scikit-learn library in order to classify the different faces embedding that we have extracted from our face database and identify the different people on frame.
-   3. **Pytorch** – In order to calculate the 128d embeddings from the face dataset and extract those embeddings, we need to make use of the pre-trained FaceNet neural network. This FaceNet needs Pytorch framework to function and therefore make the embedder responsive.
-   4. **Caffe** – We use a pre-trained detector that is stored as a caffe model which is used to detect the area on the screen where the face is located. The detector is a part of the pre-trained FaceNet Neural Network.
+![Dataflow Diagram]()
 
 ## Functional Requirements
 

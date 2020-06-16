@@ -39,31 +39,34 @@ After the SVC is trained, we move on to using those pickle files for the main de
 ![System Design](https://github.com/borneelphukan/Smart-Surveillance-using-OpenFace-Face-Recognition/blob/master/implementation.png)
 
 The system is designed using the following major components in mind:
-**1. Database** – The database is a very important component that stores the image data
+1. **Database** – The database is a very important component that stores the image data
 of the person who’s face is to be detected. Here, the images of every person is stored in
 an individual sub-folder with the name of the person. Setting the sub-folder as the
 name of the person is very important because we will be extracting the name of the sub
 folder and train and use it for identification of the person on frame.
-School of Computer Engineering, KIIT, BBSR
-8Smart Surveillance System using OpenFace Face Recognition
+
 2. **openface_nn4.small2.v1.t7** – This is the pytorch implementation of the FaceNet model. The
 model makes use of Google’s FaceNet architecture for feature extraction and uses a triplet
 loss function to test how accurate the neural net classifies a face. This model is trained using
 50,000 images of the Labelled Faces in the Wild Home (LFW) Dataset and the weights stored as
 a caffe model.
+
 3. **res10_300x300_ssd_iter_140000.caffemodel** – The caffemodel is used for storing the
 trained weights generated after training the openface neural network. It contains a
 deploy.prototext file which stores the meta data of the model. In this project, we will be using
 and overwriting these weights with our own custom face image data to generate an entirely new
 facial recognition model.
+
 4. **Support Vector Classifier** – Once the process of triplet loss calculation has been completed,
 the process of classifying the different face images according to the person on frame is initiated.
 For this, we can either use multiple classification, random forest classification or support vector
 classification. Out of all these classification technique, the “sklearn-svc” or Support Vector
 Classifier has proven to be the most accurate in terms of classification.
+
 5. **Creating the FaceBlob** - Once the classification procedure has been accomplished, it is time
 to initiate the creation of a Faceblob around the face on frame. This is done using the OpenCV
 framework where we create a square around the face embeddings and implement it on a loop.
+
 6. **Computing the Softmax probabilities** – Once the detection and creation of the face blob is
 completed, we have to compute the softmax probabilities. A softmax probability is used for
 determining the degree of accuracy of prediction by the system. It is a comparision between the

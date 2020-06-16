@@ -73,12 +73,15 @@ determining the degree of accuracy of prediction by the system. It is a comparis
 absolute value and the real value. Higher the softmax probability, more is the probability that
 the prediction of the person is correct.
 
-## Functional Requirements
+## Implementation
 
    1. Download the Face Detector Caffe Model from here: https://drive.google.com/open?id=1hh4aAYVB3vYSCt91dB43j4XvgoSylJTi
+   
    2. Run the embeddings_extraction.py using the command:
    `python embeddings_extraction.py --dataset data\ --embeddings output/embeddings.pickle --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7`
+   
    3. Run the train.py using the command:
    `python train.py --embeddings output/embeddings.pickle --recognizer output/recognizer.pickle --labelencoder output/le.pickle`
+   
    4. Run the identification.py using the command:
    `python identification.py --detector face_detector_caffe_model\ --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --labelencoder output/le.pickle`
